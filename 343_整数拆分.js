@@ -19,4 +19,23 @@ var integerBreak = function(n) {
     else{
         return (3**(Math.floor(n/3)))*2
     }
+
+    // 解法二
+    /*
+    let dp = []; 
+    dp[0] = 0;
+    dp[1] = 0;
+    dp[2] = 1;
+    dp[3] = 2;
+    for(let i=4;i<=n;i++){
+        let max = 0;
+        for(let j=1;j<i;j++){
+            if(max<Math.max(j*(i-j),j*dp[i-j])){
+                max = Math.max(j*(i-j),j*dp[i-j])
+            }
+        }
+        dp[i] = max;
+    }
+    return dp[n]
+    */
 };
