@@ -17,11 +17,12 @@ var findTargetSumWays = function(nums, target) {
     for(let i=0;i<nums.length;i++){
         let next = []
         for(let j = 0;j<=left;j++){
+            // 考虑nums[i]取还是不取
             if(j>=nums[i]){
-                next.push(dp[j] + dp[j-nums[i]])
+                next.push(dp[j] + dp[j-nums[i]]) // 如果可以取的话就是上一次的值加上取过之后
             }
             else{
-                next.push(dp[j])
+                next.push(dp[j]) // 如果不取的话用上一次的值
             }
             
         }
