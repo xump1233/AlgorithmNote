@@ -4,10 +4,17 @@
 var getMaxNum = function(n,arr){
     let dp = new Array(n+1).fill(0); // dp[i]表示容量为i的背包，容纳物品的组合数；
     dp[0] = 1;
-    for(let i=1;i<=n;i++){
-        for(let j=0;j<arr.length;j++){
-            if(i>=arr[j]){
-                dp[i] = dp[i] + dp[i-arr[j]]
+    // for(let i=1;i<=n;i++){
+    //     for(let j=0;j<arr.length;j++){
+    //         if(i>=arr[j]){
+    //             dp[i] = dp[i] + dp[i-arr[j]]
+    //         }
+    //     }
+    // }
+    for(let i=0;i<arr.length;i++){
+        for(let j=1;j<=n;j++){
+            if(j>i){
+                dp[j] = dp[j-arr[i]] + dp[j];
             }
         }
     }
